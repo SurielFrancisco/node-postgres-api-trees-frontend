@@ -34,13 +34,13 @@ function subirACloudinary(file) {
             // Guardamos el link en el input oculto para que postTree/putTree lo lean
             $('#imagen_url').val(res.secure_url);
             $('#upload-status').html(
-                `<span style="color:green">¡Imagen subida con éxito! ✅</span> <br>
+                `<span style="color:green">¡Imagen subida con éxito! </span> <br>
                  <img src="${res.secure_url}" style="width:80px; margin-top:5px; border-radius:4px; border: 1px solid #ccc;">`
             );
         },
         error: function(err) {
             console.error("Error al subir a Cloudinary:", err);
-            $('#upload-status').html('<span style="color:red">Error al subir imagen ❌. Revisa tu consola.</span>');
+            $('#upload-status').html('<span style="color:red">Error al subir imagen . Revisa tu consola.</span>');
         }
     });
 }
