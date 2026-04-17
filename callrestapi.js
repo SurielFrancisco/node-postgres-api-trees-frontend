@@ -16,7 +16,7 @@ $(document).ready(function() {
 });
 
 function subirACloudinary(file) {
-    $('#upload-status').html('<span style="color:blue">Subiendo imagen a Cloudinary... ⏳</span>');
+    $('#upload-status').html('<span style="color:blue">Subiendo imagen a Cloudinary... </span>');
     $('#imagen_url').val(''); // Limpiamos el input por si había una imagen antes
 
     var formData = new FormData();
