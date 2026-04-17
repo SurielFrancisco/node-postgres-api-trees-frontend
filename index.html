@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Árboles</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        img { max-width: 100px; height: auto; border-radius: 5px; }
+        button { padding: 10px 15px; background-color: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 5px; margin-right: 5px;}
+        button:hover { background-color: #45a049; }
+        /* Nuevos estilos para los botones de editar y eliminar */
+        .btn-rojo { background-color: #f44336; }
+        .btn-rojo:hover { background-color: #da190b; }
+        .btn-azul { background-color: #2196F3; }
+        .btn-azul:hover { background-color: #0b7dda; }
+        .btn-gris { background-color: #808080; }
+        .btn-gris:hover { background-color: #5c5c5c; }
+        .acciones { min-width: 160px; }
+    </style>
+</head>
+<body>
+    <h1>REST API Árboles</h1>
+    
+    <div style="background-color: #f9f9f9; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+        <h3 id="form-titulo">Agregar Nuevo Árbol</h3>
+        
+        <input type="hidden" id="id_arbol">
+
+        <div><label>Nombre Común:</label> <input type="text" id="nombre_comun"></div>
+        <div><label>Nombre Científico:</label> <input type="text" id="nombre_cientifico"></div>
+        <div><label>Familia:</label> <input type="text" id="familia"></div>
+        <div><label>Origen:</label> <input type="text" id="origen"></div>
+        <div><label>Altura Máx (m):</label> <input type="number" id="altura_maxima_metros"></div>
+        <div><label>Tipo de Hoja:</label> <input type="text" id="tipo_hoja"></div>
+        <div><label>Clima Ideal:</label> <input type="text" id="clima_ideal"></div>
+        <div><label>Estado de Conservación:</label> <input type="text" id="estado_conservacion"></div>
+        <label>Imagen:</label> 
+        <div>
+            <input type="file" id="file_input" accept="image/*" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+            <input type="hidden" id="imagen_url"> 
+            <div id="upload-status" style="margin-top: 5px; font-size: 14px;"></div>
+        </div>
+        <!-- <div><label>URL de Imagen:</label> <input type="text" id="imagen_url" placeholder="https://res.cloudinary.com/..."></div> -->
+        <br>
+        
+        <button id="btn-guardar" onclick="postTree()">Guardar Árbol</button>
+        <button id="btn-actualizar" onclick="putTree()" class="btn-azul" style="display:none;">Actualizar Árbol</button>
+        <button id="btn-cancelar" onclick="cancelarEdicion()" class="btn-gris" style="display:none;">Cancelar</button>
+    </div>
+
+    <button onclick="getTrees()">Cargar Árboles</button>
+    
+    <div id="resultado"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="callrestapi.js"></script>
+</body>
+</html>
